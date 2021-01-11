@@ -1,15 +1,22 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 const Logout = () => {
   const handleSubmit = () => {
-    // Your code here
+    localStorage.removeItem("TOKEN");
+    alert("Disconnected successfully");
   };
 
   return (
     <form>
-      <button type="button" onClick={handleSubmit}>
+      <Button
+        variant="contained"
+        color="primary"
+        margin="normal"
+        onClick={handleSubmit}
+      >
         Disconnect
-      </button>
+      </Button>
     </form>
   );
 };
