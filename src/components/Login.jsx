@@ -39,6 +39,8 @@ const Login = () => {
         id="password"
         placeholder="***********"
         variant="outlined"
+        required
+        label="Mot de passe"
         className={classes.someInput}
         margin="normal"
         fullWidth
@@ -51,6 +53,7 @@ const Login = () => {
         size="medium"
         variant="contained"
         fullWidth
+        margin="normal"
         onClick={handleSubmit}
       />
     </form>
