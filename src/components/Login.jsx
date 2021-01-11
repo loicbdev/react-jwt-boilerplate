@@ -13,7 +13,6 @@ const Login = () => {
     if (email && password) {
       axios
         .post(`${REACT_APP_SERVER_ADDRESS}/login/`, {
-          // (attention!!!)
           email,
           password,
         })
@@ -23,7 +22,6 @@ const Login = () => {
           alert("Logged successfully"); // (attention!!!)
         })
         .catch((err) => {
-          // (attention!!!)
           alert(err.response.data.errorMessage);
         });
     } else {
