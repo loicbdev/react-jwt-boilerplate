@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import useStyles from "./styleFormConnection";
@@ -8,8 +9,21 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
+    const { REACT_APP_SERVER_ADDRESS } = process.env;
     if (email && password) {
-      console.log(email, password);
+      axios
+        .post(`${REACT_APP_SERVER_ADDRESS}/login/`, {
+          email,
+          password,
+        })
+        .then((res) => res.data)
+        .then((data) => {
+          localStorage.setItem("TOKEN", data.token);
+          alert("Logged successfully");
+        })
+        .catch((err) => {
+          alert(err.response.data.errorMessage);
+        });
     } else {
       alert("Please specify both email and password");
     }
@@ -52,7 +66,6 @@ const Login = () => {
         margin="normal"
         onClick={handleSubmit}
       >
-        {" "}
         Login
       </Button>
     </form>

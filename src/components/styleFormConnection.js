@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   someInput: {
-    margin: "7px 0",
+    margin: "5px 0",
     textAlign: "left",
     backgroundColor: theme.palette.common.white,
-    paddingBottom: "1rem",
+    paddingBottom: "1.5rem",
   },
   list: {
     margin: "7px 0",
