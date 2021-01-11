@@ -13,15 +13,17 @@ const Login = () => {
     if (email && password) {
       axios
         .post(`${REACT_APP_SERVER_ADDRESS}/login/`, {
+          // (attention!!!)
           email,
           password,
         })
         .then((res) => res.data)
         .then((data) => {
-          localStorage.setItem("TOKEN", data.token);
-          alert("Logged successfully");
+          localStorage.setItem("TOKEN", data.token); // (attention!!!)
+          alert("Logged successfully"); // (attention!!!)
         })
         .catch((err) => {
+          // (attention!!!)
           alert(err.response.data.errorMessage);
         });
     } else {
@@ -45,7 +47,7 @@ const Login = () => {
         autoComplete="email"
         autoFocus
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)} // (attention!!!)
       />
       <TextField
         name="password"
@@ -58,7 +60,7 @@ const Login = () => {
         className={classes.someInput}
         margin="normal"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)} // (attention!!!)
       />
       <Button
         variant="contained"
