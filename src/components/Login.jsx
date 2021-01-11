@@ -23,7 +23,6 @@ const Login = () => {
         variant="outlined"
         margin="normal"
         required
-        fullWidth
         id="email"
         type="email"
         label="Email"
@@ -37,25 +36,25 @@ const Login = () => {
       <TextField
         name="password"
         id="password"
+        type="password"
         placeholder="***********"
         variant="outlined"
         required
         label="Mot de passe"
         className={classes.someInput}
         margin="normal"
-        fullWidth
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Button
-        text="Connexion"
-        color="primary"
-        size="medium"
         variant="contained"
-        fullWidth
+        color="primary"
         margin="normal"
         onClick={handleSubmit}
-      />
+      >
+        {" "}
+        Login
+      </Button>
     </form>
   );
 };
